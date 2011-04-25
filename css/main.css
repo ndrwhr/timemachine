@@ -33,10 +33,7 @@ body {
     bottom: 0;
     left: 0;
     font-family: georgia;
-}
-
-h3 {
-    font-weight: bold;
+    font-size: 20px;
 }
 
 #original-content {
@@ -47,4 +44,19 @@ h3 {
     position: relative;
     height: 100%;
     width: 100%;
+}
+
+#screen h3, #screen p {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#screen h3 {
+    font-weight: bold;
+}
+
+#screen h3 span, #screen h3 span {
+    position: absolute;
+    display: inline-block;
 }
