@@ -13,6 +13,18 @@ if (!Function.prototype.bind){
 
 var methods = {
     
+    id: function(id){
+        return this.getElementById(id);
+    },
+    
+    search: function(selector){
+        return this.querySelectorAll(selector);
+    },
+    
+    find: function(selector){
+        return this.querySelector(selector);
+    },
+    
     addEvent: function(event, callback){
         this.addEventListener(event, callback, false);
     },
@@ -32,6 +44,6 @@ var methods = {
 };
 
 for (method in methods)
-    HTMLElement.prototype[method] = methods[method];
+    Document.prototype[method] = HTMLElement.prototype[method] = methods[method];
 
 })();
