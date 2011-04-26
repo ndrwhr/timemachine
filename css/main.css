@@ -40,23 +40,28 @@ body {
     display: none;
 }
 
-#screen {
+#canvas {
     position: relative;
     height: 100%;
     width: 100%;
 }
 
-#screen h3, #screen p {
+#canvas h3, #canvas p {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-#screen h3 {
+#canvas h3 {
     font-weight: bold;
 }
 
-#screen h3 span, #screen h3 span {
+#canvas h3 span, #canvas p span {
     position: absolute;
-    display: inline-block;
+    display: block;
+}
+
+#canvas div {
+    position: absolute;
+    background: rgba(255, 0, 0, 0.2);
 }

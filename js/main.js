@@ -1,3 +1,4 @@
 
-var iterator = new ContentIterator(document.id('original-content')),
-    cursor = new Cursor(document.id('screen'));
+var canvas = document.id('canvas'),
+    iterator = new ContentIterator(document.id('original-content')),
+    cursor = new Cursor(canvas);
