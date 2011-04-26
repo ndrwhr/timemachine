@@ -26,14 +26,19 @@ body {
 }
 
 /* CUSTOM */
-body {
+body, #canvas {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+body {
     font-family: georgia;
     font-size: 20px;
+    -webkit-user-select: none;
+    cursor: crosshair;
 }
 
 #original-content {
@@ -41,9 +46,11 @@ body {
 }
 
 #canvas {
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
+    cursor: crosshair;
+    overflow: hidden;
 }
 
 #canvas h3, #canvas p {
@@ -52,16 +59,14 @@ body {
     left: 0;
 }
 
-#canvas h3 {
+#canvas h1, #canvas h2, #canvas h3, {
     font-weight: bold;
 }
 
-#canvas h3 span, #canvas p span {
+#canvas h1 span,
+#canvas h2 span,
+#canvas h3 span,
+#canvas p span {
     position: absolute;
     display: block;
-}
-
-#canvas div {
-    position: absolute;
-    background: rgba(255, 0, 0, 0.2);
 }
