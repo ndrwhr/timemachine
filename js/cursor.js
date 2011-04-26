@@ -21,13 +21,16 @@ var Cursor = function(element){
 
 Cursor.prototype = {
     
+    previous: new Vector,
+    movementCallback: function(){},
+    
     moveStart: function(eventName){
         var element = this.element,
             movement = this.movement;
         
         return (function(event){
             event.preventDefault();
-            this.reset();
+            this.previous = this.createVector_(event);
             element.addEvent(eventName, movement); // move on subsequent moves
         }).bind(this);
     },
@@ -41,12 +44,25 @@ Cursor.prototype = {
         }).bind(this);
     },
     
-    reset: function(){
-        delete this.previous;
+    createVector_: function(event){
+        if (event.touches) event = event.touches[0];
+        
+        return new Vector(event.pageX, event.pageY);
     },
     
     movement: function(event){
-        if (event.touches) event = event.touches[0];
+        var current = this.createVector_(event),
+            diff = current.subtract(this.previous),
+            length = diff.length();
+        
+        if (length > 5){
+            this.movementCallback(current, this.previous, diff, length, diff.angle());
+            this.previous = current;
+        }
+    },
+    
+    onMovement: function(callback){
+        this.movementCallback = callback;
     }
     
 };
