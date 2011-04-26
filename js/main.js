@@ -43,7 +43,7 @@ cursor.onMovement(function(next, previous, diff, length, angle){
     div.style.fontSize = height + 'px';
     div.style.top = (next.y - (height / 2)) + 'px';
     div.style.left = next.x + 'px';
-    div.style.webkitTransform = 'rotate(' + (180 * angle / Math.PI).round() + 'deg)';
+    div.style.webkitTransform = 'rotate(' + angle + 'deg)';
     div.innerHTML = letter;
     
     parent.appendChild(div);

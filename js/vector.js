@@ -42,7 +42,10 @@ Vector.prototype = {
     },
     
     angle: function(){
-        return Math.atan(this.y / this.x);
+        var x = this.x, y = this.y,
+            angle = (180 * Math.atan(y / x) / Math.PI).round();
+        
+        return (x < 0) ? angle + 180 : angle;
     },
     
     toString: function(){
