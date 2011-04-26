@@ -11,6 +11,10 @@ if (!Function.prototype.bind){
     };
 }
 
+Number.prototype.round = function(){
+    return Math.round(this * 10) / 10;
+};
+
 var methods = {
     
     id: function(id){
