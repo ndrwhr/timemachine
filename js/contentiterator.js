@@ -4,21 +4,23 @@ var ContentIterator = function(element){
     this.containers = [].slice.call(element.search('*'));
     this.letterIndex = 0;
     this.letters = [];
+    
+    this.nextContainer();
 };
 
 ContentIterator.prototype = {
     
     getLetter: function(){
+        if (this.letterIndex >= this.letters.length)
+            this.nextContainer();
+        
         return this.letters[this.letterIndex++];
     },
     
-    getContainer: function(){
+    nextContainer: function(){
         var container = this.containers[++this.containerIndex];
-        
         this.letters = container ? container.textContent.split('') : [];
         this.letterIndex = 0;
-        
-        return container;
     }
     
 };
