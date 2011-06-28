@@ -10,11 +10,14 @@ var LetterSizer = function(parent, element){
 
 LetterSizer.prototype = {
     
+    defaultRatio: 0.25,
+    
     map: {},
     
     getSize: function(letter){
         var element = this.element,
-            map = this.map;
+            map = this.map,
+            ratio = this.defaultRatio;
         
         letter = '' + letter + '';
         
@@ -25,9 +28,11 @@ LetterSizer.prototype = {
         this.element.appendChild(span);
         
         var rect = span.getClientRects()[0];
-            ratio = map[letter] = (rect.height / rect.width) || 0.25;
         
-        return ratio;
+        if (rect) map[letter] = (rect.height / rect.width) || this.defaultRatio;
+        else map[letter] = this.defaultRatio;
+        
+        return map[letter];
     }
     
 };
