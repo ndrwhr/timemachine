@@ -3,6 +3,9 @@
 var Cursor = function(element){
     this.element = element;
     
+    window.addEventListener('resize', this.calculateOffsets.bind(this), false);
+    this.calculateOffsets();
+    
     // binding methods to an instance method...
     this.movement = this.movement.bind(this);
     
@@ -16,7 +19,6 @@ var Cursor = function(element){
         'touchend': moveEnd('touchmove'),
         'touchcancel': moveEnd('touchmove')
     });
-    
 };
 
 Cursor.prototype = {
@@ -47,7 +49,7 @@ Cursor.prototype = {
     createVector_: function(event){
         if (event.touches) event = event.touches[0];
         
-        return new Vector(event.pageX, event.pageY);
+        return new Vector(event.pageX, event.pageY).subtract(this.offsets);
     },
     
     movement: function(event){
@@ -63,6 +65,11 @@ Cursor.prototype = {
     
     onMovement: function(callback){
         this.movementCallback = callback;
+    },
+    
+    calculateOffsets: function(){
+        var element = this.element;
+        this.offsets = new Vector(element.offsetLeft, element.offsetTop);
     }
     
 };
