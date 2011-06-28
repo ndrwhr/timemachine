@@ -23,20 +23,12 @@ body {
     line-height: 1;
     color: black;
     background: white;
-}
-
-/* CUSTOM */
-body, #canvas {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-body {
-    font-family: georgia;
-    background-image: url(../assets/exclusive_paper.gif);
+    width: 800px;
+    margin: 0 auto;
+    background: #f5f5f5;
+    text-align: center;
+    /* Gross hack to stop weird scrolling. */
+    overflow: hidden;
 }
 
 #original-content {
@@ -44,32 +36,59 @@ body {
 }
 
 #canvas {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    font-family: georgia;
+    position: relative;
+    margin: 40px 0 30px;
+    width: 800px;
+    height: 500px;
     cursor: crosshair;
-    overflow: hidden;
     font-size: 20px;
-    text-shadow: 0px 2px 3px rgba(0,0,0,0.25);
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.35);
     -webkit-user-select: none;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: #fafafa;
 }
 
-#canvas h3, #canvas p {
+#canvas:after,
+#canvas:before {
     position: absolute;
-    top: 0;
-    left: 0;
+    content: "";
+    z-index: -1;
+    bottom: 15px;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.4);
+    width: 50%;
+    height: 10px;
+    max-width: 300px;
 }
 
-#canvas h1, #canvas h2, #canvas h3, {
-    font-weight: bold;
+#canvas:after {
+    right: 5px;
+    -webkit-transform: rotate(3deg);
 }
 
-#canvas h1 span,
-#canvas h2 span,
-#canvas h3 span,
-#canvas p span {
+#canvas:before {
+    left: 5px;
+    -webkit-transform: rotate(-3deg);
+}
+
+#canvas span {
     position: absolute;
     display: block;
+}
+
+#controls {
+    font-family: lucida grande, lucida;
+    line-height: 1.5em;
+    color: #777;
+    font-size: 13px;
+}
+
+#controls p {
+    margin-bottom: 1.2em;
+}
+
+#controls p a {
+    color: #aaa;
+    font-size: 0.9em;
 }
