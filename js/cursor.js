@@ -58,7 +58,7 @@ Cursor.prototype = {
             length = diff.length();
         
         if (length > 5){
-            this.movementCallback(current, this.previous, diff, length, diff.angle());
+            this.movementCallback(current, length, diff.angle());
             this.previous = current;
         }
     },

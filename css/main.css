@@ -31,7 +31,7 @@ body {
 /*    overflow: hidden;*/
 }
 
-#canvas {
+#container {
     font-family: georgia;
     position: relative;
     margin: 40px 0 30px;
@@ -39,8 +39,8 @@ body {
     height: 500px;
 }
 
-#canvas:after,
-#canvas:before {
+#container:after,
+#container:before {
     position: absolute;
     content: "";
     z-index: -1;
@@ -51,22 +51,22 @@ body {
     max-width: 300px;
 }
 
-#canvas:after {
+#container:after {
     right: 5px;
     -webkit-transform: rotate(3deg);
 }
 
-#canvas:before {
+#container:before {
     left: 5px;
     -webkit-transform: rotate(-3deg);
 }
 
-#canvas span {
+#container span {
     position: absolute;
     display: block;
 }
 
-#front, #back {
+canvas {
     position: absolute;
     top: 0;
     left: 0;
@@ -76,9 +76,6 @@ body {
     border-radius: 10px;
     border: 1px solid rgba(0,0,0,0.1);
     background: #fafafa;
-    overflow: hidden;
-    -webkit-backface-visibility: hidden;
-    -webkit-transition: -webkit-transform 2s ease-in-out;
 }
 
 fieldset {

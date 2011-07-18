@@ -43,9 +43,12 @@ Vector.prototype = {
     
     angle: function(){
         var x = this.x, y = this.y,
-            angle = (180 * Math.atan(y / x) / Math.PI).round();
-        
-        return (x < 0) ? angle + 180 : angle;
+            angle = Math.atan(y / x);
+
+        if (x < 0) angle += Math.PI;
+        if (x >= 0 && y <= 0) angle += (2 * Math.PI);
+
+        return angle.round();
     },
     
     toString: function(){
