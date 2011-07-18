@@ -2,7 +2,7 @@
 var canvas = document.id('canvas'),
     surface = document.id('front'),
     sizer = new LetterSizer(surface, 'p'),
-    contentIterator = new ContentIterator(document.id('original-content')),
+    contentIterator = new ContentIterator(document.id('input')),
     cursor = new Cursor(front);
 
 var parent = document.createElement('p'),
@@ -30,6 +30,6 @@ cursor.onMovement(function(next, previous, diff, length, angle){
     children++;
     
     if (children % 100 == 0)
-        front.appendChild(parent = document.createElement('p'))
+        front.appendChild(parent = document.createElement('p'));
 });
 
