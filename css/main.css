@@ -28,7 +28,7 @@ body {
     background: #f5f5f5;
     text-align: center;
     /* Gross hack to stop weird scrolling. */
-    overflow: hidden;
+/*    overflow: hidden;*/
 }
 
 #canvas {
@@ -79,6 +79,18 @@ body {
     overflow: hidden;
     -webkit-backface-visibility: hidden;
     -webkit-transition: -webkit-transform 2s ease-in-out;
+}
+
+fieldset {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 200px;
+}
+
+fieldset input,
+fieldset textarea {
+    display: block;
 }
 
 #social {
