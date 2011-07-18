@@ -31,10 +31,6 @@ body {
     overflow: hidden;
 }
 
-#original-content {
-    display: none;
-}
-
 #canvas {
     font-family: georgia;
     position: relative;
