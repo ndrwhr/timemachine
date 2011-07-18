@@ -7,9 +7,10 @@ var ContentIterator = function(input){
 ContentIterator.prototype = {
     
     getLetter: function(){
-        var input = this.input.value;
+        var input = this.input.value,
+            letter = input.charAt(this.index);
         this.index = (++this.index) % input.length;
-        return input.charAt(this.index);
+        return letter;
     }
     
 };
