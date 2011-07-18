@@ -1,11 +1,13 @@
 
 var canvas = document.id('canvas'),
-    sizer = new LetterSizer(canvas, 'p'),
+    surface = document.id('front'),
+    sizer = new LetterSizer(surface, 'p'),
     contentIterator = new ContentIterator(document.id('original-content')),
-    cursor = new Cursor(canvas);
+    cursor = new Cursor(front);
 
-var parent = document.createElement('p');
-canvas.appendChild(parent);
+var parent = document.createElement('p'),
+    children = 0;
+front.appendChild(parent);
 
 cursor.onMovement(function(next, previous, diff, length, angle){
     var letter = contentIterator.getLetter();
@@ -24,5 +26,10 @@ cursor.onMovement(function(next, previous, diff, length, angle){
     span.innerHTML = letter;
     
     parent.appendChild(span);
+    
+    children++;
+    
+    if (children % 100 == 0)
+        front.appendChild(parent = document.createElement('p'))
 });
 

@@ -68,7 +68,7 @@ Cursor.prototype = {
     },
     
     calculateOffsets: function(){
-        var element = this.element;
+        var element = this.element.parentNode;
         this.offsets = new Vector(element.offsetLeft, element.offsetTop);
     }
     
